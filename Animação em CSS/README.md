@@ -1,5 +1,5 @@
 # CSS-Animation
-Check it out at: https://brunodepauloalmeida.github.io/CSS-Animation/
+Check it out at: https://brunodepauloalmeida.github.io/Computer-Graphics/
 
 This repository is filled with content created to support Computer Graphics learning. Projects were made as assignments for classes at FGV-RJ in Brazil.
 The following sites were consulted during the assignments development: 
