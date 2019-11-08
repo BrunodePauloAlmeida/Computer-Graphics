@@ -1,0 +1,254 @@
+﻿span {
+    padding: 10px 10px 10px 10px;
+    text-decoration: none;
+    position: fixed;
+    font-size: 25px;
+    background-color: rgba(0,0,0,0.5);
+    color: #969696;
+    opacity: 1;
+    display: block;
+    cursor: pointer;
+    width: 120px;
+    margin-left: 2px;
+    text-align: center;
+}
+
+    span:hover {
+        color: #f1f1f1;
+    }
+
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+    /* The navigation menu links */
+    .sidenav a {
+        padding: 8px 8px 8px 20px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #969696;
+        display: block;
+        transition: 0.3s;
+    }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+    /* Position and style the close button (top right corner) */
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#realMain {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+/*Estilo Do Background*/
+title {
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: #88A5B0;
+}
+
+svg {
+    height: 100vh;
+    margin: auto;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+#top, #bottom, #left, #right {
+    background: rgba(32, 46, 87, 0.75);
+    position: fixed;
+}
+
+#left, #right {
+    top: 0;
+    bottom: 0;
+    width: 10px;
+}
+
+#left {
+    left: 0;
+}
+
+#right {
+    right: 0;
+}
+
+#top, #bottom {
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+
+#top {
+    top: 0;
+}
+
+#bottom {
+    bottom: 0;
+}
+
+/*Estilo Das Materias*/
+
+.calculo {
+    fill: rgb(1, 61, 125);
+    -ms-width: 120px;
+    width: 120px;
+    -ms-height: 80px;
+    height: 80px;
+}
+
+.olimpiada {
+    fill: rgb(75, 188, 236);
+    width: 120px;
+    height: 80px;
+}
+
+.conhecimento_adicional {
+    fill: rgb(102, 138, 177);
+    width: 120px;
+    height: 80px;
+}
+
+.programacao {
+    fill: rgb(6, 142, 208);
+    width: 120px;
+    height: 80px;
+}
+
+.probabilidade {
+    fill: rgb(23, 104, 180);
+    width: 120px;
+    height: 80px;
+}
+
+.complementar {
+    fill: rgb(9, 47, 79);
+    width: 120px;
+    height: 80px;
+}
+
+.eletiva {
+    fill: rgb(216, 215, 214);
+    width: 120px;
+    height: 80px;
+}
+
+.tcc {
+    fill: rgb(206, 232, 245);
+    width: 120px;
+    height: 80px;
+}
+
+.light_text {
+    fill: white;
+    text-anchor: middle;
+    vertical-align: central;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.dark_text {
+    fill: rgb(9, 47, 79);
+    text-anchor: middle;
+    vertical-align: central;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/*Interactions*/
+
+.mouse_over {
+    stroke: black;
+    stroke-width: 7px;
+    stroke-linecap: round;
+    
+    transform: translate(-10px,-10px);
+    width: 140px;
+    height: 100px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#botao {
+    fill: #068A88;
+    stroke: black;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.linha {
+    stroke: black;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    opacity: 0;
+}
+
+#horas {
+    stroke: rgb(110,110,110);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    stroke-width: 1px;
+    font-weight: lighter;
+}
+
+#driver {
+    --x: 30px;
+    --y: 90px;
+    transform: translate(var(--x), var(--y));
+}
+
+#button {
+    --bx: 30px;
+    --by: 90px;
+    transform: translate(var(--bx), var(--by));
+}
