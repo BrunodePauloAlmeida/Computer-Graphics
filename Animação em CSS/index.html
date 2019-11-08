@@ -1,0 +1,217 @@
+<title> SVG-CSS Animation </title>
+<link rel="stylesheet" href="Animacao SVG/stylesheet.css" />
+<div id="left"></div>
+<div id="right"></div>
+<div id="top"></div>
+<div id="bottom"></div>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../Animação em CSS/index.html">Animação em CSS</a>
+    <a href="../Fluxograma Matemática Aplicada/index.html">Fluxograma de <br> Matemática Aplicada</a>
+    <a href="../Fluxograma Ciência de Dados/index.html">Fluxograma de <br> Ciência de Dados</a>
+    <a href="../Gerador de Curvas de Bezier/index.html">Gerador de <br />Curvas de Bezier</a>
+</div>
+
+<span id="span" onclick="openNav()">Projetos</span>
+
+<div id="realMain">
+    <body>
+        <h1> SVG - CSS Animation </h1>
+
+
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             center viewBox="0 0 800 410" onload="makeClickable(evt)">
+
+            <filter id="borrado" height="300%" y="-100%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+            </filter>
+
+            <rect class="mouse" x="0" y="0" width="800" height="410" />
+
+            <g id="dogzoom">
+                <g id="dog">
+
+                    <g id="maxilar">
+                        <g id="mouth">
+                            <path id="boca" d="M 370 265 Q 400 350 430 265" />
+                        </g>
+
+
+                        <g id="tongueA">
+                            <g id="tongue" class="tongue">
+                                <path id="tongue1" d="M 380 262 Q 400 370 420 262" />
+                                <path d="M 400 280 L 400 300" stroke="white" />
+                            </g>
+                        </g>
+
+
+                    </g>
+
+                    <g id="bochechas" filter="url(#borrado)">
+                        <ellipse cx="345" cy="210" rx="20" ry="15" />
+                        <ellipse cx="455" cy="210" rx="20" ry="15" />
+                    </g>
+
+                    <g id="angryMouth" style="stroke: black; stroke-width: 1; fill: white">
+                        <polygon id="m" points="376,265 379,278 421,278 424,265" fill="white" />
+
+                        <polygon id="dentes" points="384,280 379,265 379,280 384,280" />
+                        <polygon id="dentes" points="416,280 421,265 421,280 416,280" />
+
+                        <polygon id="dentes" points="396,280 400,274 404,280" />
+                        <polygon id="dentes" points="382,280 388,270 390,280" />
+                        <polygon id="dentes" points="390,280 396,270 398,280" />
+                        <polygon id="dentes" points="402,280 404,270 410,280" />
+                        <polygon id="dentes" points="410,280 412,270 418,280" />
+
+                        <polygon id="dentes" points="384,270 388,278 392,270" />
+                        <polygon id="dentes" points="392,267 396,278 400,267" />
+                        <polygon id="dentes" points="400,267 404,278 408,267" />
+                        <polygon id="dentes" points="408,270 412,278 416,270" />
+                    </g>
+
+                    <g id="top_teeth" opacity="0">
+                        <polygon points="376,265 379,285 384,265" style="stroke: black; stroke-width: 1; fill: white" />
+                        <polygon points="424,265 421,285 416,265" style="stroke: black; stroke-width: 1; fill: white" />
+                    </g>
+
+                    <path id="nothing" d="M 200 200 L 100 100" fill="transparent" stroke="transparent" />
+
+                    <g class="immobile">
+
+                        <path class="c1" d="M 395 170 C 395 105, 405 105, 405 130 S 400 180, 428 235 S 370 270, 400 250" />
+                        <path class="c1" d="M 405 170 C 405 105, 395 105, 395 130 S 400 180, 372 235 S 430 270, 400 250" />
+                        <path class="c2" d="M 364 255 C 334 250, 320 240, 290 270" />
+                        <path class="c2" d="M 436 255 C 466 250, 480 240, 510 270" />
+                        <path class="c3" d="M 290 270 C 270 250, 270 180, 275 170 S 265 150 265 130" />
+                        <path class="c3" d="M 510 270 C 530 250, 530 180, 525 170 S 535 150 535 130" />
+                        <!--
+                    <path class="c4" d="M 280 80 C 310 30, 360 30, 390 50" />
+                    <path class="c4" d="M 520 80 C 490 30, 440 30, 410 50" />
+                        -->
+                        <path class="c4" d="M 340 100 Q 400 70 460 100" />
+                        <path class="c4" d="M 265 130 Q 260 95 280 60" />
+                        <path class="c4" d="M 535 130 Q 540 95 520 60" />
+
+                        <!--<g id="bigode">
+                        <path d="M 380 250 Q 370 240 360 260" />
+                        <path d="M 378 255 Q 368 245 358 265" />
+                        <path d="M 380 260 Q 370 250 360 270" />
+                        <path d="M 420 250 Q 430 240 440 260" />
+                        <path d="M 422 255 Q 432 245 442 265" />
+                        <path d="M 420 260 Q 430 250 440 270" />
+                    </g>-->
+
+                    </g>
+
+                    <g class="olhos">
+
+                        <ellipse class="iris" cx="360" cy="180" rx="14" ry="12" />
+
+                        <g id="pupila1">
+                            <g id="p1">
+                                <circle id="ppl1" cx="360" cy="180" r="8" />
+                            </g>
+
+                        </g>
+
+
+
+                        <ellipse class="iris" cx="440" cy="180" rx="14" ry="12" />
+
+                        <g id="pupila2">
+                            <g id="p2">
+                                <circle id="ppl2" cx="440" cy="180" r="8" />
+                            </g>
+                        </g>
+
+                        <g class="light">
+                            <circle id="l1" cx="365" cy="175" r="3" />
+                            <circle id="l2" cx="445" cy="175" r="3" />
+                        </g>
+
+                    </g>
+
+                    <g id="sobrancelha">
+                        <path d="M 346 150 L 374 178" />
+                        <path d="M 454 150 L 426 178" />
+                    </g>
+
+                    <g class="mobile">
+                        <path class="ear1" d="M 340 100 L 280 60 " />
+                        <path class="ear2" d="M 460 100 L 520 60 " />
+                        <path id="e1" d="M 330 110 L 285 78 Q 270 108 285 148" stroke="#e206b4" stroke-width="2" fill="transparent" />
+                        <path id="e2" d="M 470 110 L 515 78 Q 530 108 515 148" stroke="#e206b4" stroke-width="2" fill="transparent" />
+                    </g>
+
+                    <g id="nose" class="nose">
+                        <ellipse rx="16" ry="13" cx="400" cy="245" />
+                        <circle cx="393" cy="245" r="3" fill="gray" stroke="transparent" />
+                        <circle cx="408" cy="245" r="3" fill="gray" stroke="transparent" />
+                    </g>
+                </g>
+
+
+
+                <svg id="pote_movel">
+                    <g id="pote">
+
+                        <polygon points="330,350 318,386 482,386 470,350" style="fill: #836FFF" />
+                        <path class="borda" d="M 330 350 L 317 389 Q 400 408 483 389 L 470 350" style="fill: #836FFF" />
+                        <ellipse class="borda" cx="400" cy="350" ry="14" rx="70" style="fill: #6959CD" />
+                        <ellipse class="borda" cx="400" cy="350" ry="8" rx="60" style="fill: #483D8B" />
+                        <rect x="382" y="373" height="12" width="36" fill="white" />
+                        <circle cx="380" cy="375" r="7" fill="white" />
+                        <circle cx="380" cy="385" r="7" fill="white" />
+                        <circle cx="422" cy="375" r="7" fill="white" />
+                        <circle cx="422" cy="385" r="7" fill="white" />
+
+                    </g>
+                </svg>
+
+            </g>
+
+        </svg>
+
+
+        <h1> Curvas de Bezier </h1>
+
+        <main>
+            <div class="texto">
+                <div class="column" style="background: rgba(116, 119, 135, 0.5);">
+                    <h2> Quadráticas </h2>
+                    <img src="Animacao SVG/data/qBezier.png" alt="Quadratic Bezier Curves" width="380" />
+                    <h3> &#60;path id="tongue" d="M 380 262 Q 400 370 420 262" /&#62; </h3>
+                    <hr />
+                    <h2> Quadráticas Extendidas </h2>
+                    <img src="Animacao SVG/data/qsBezier.png" alt="Quadratic Extended Bezier Curves" width="380" />
+                    <h3> &#60;path class="c3" d="M 290 270 C 270 250, 270 180, 275 170 <br /> S 265 150 265 130" / /&#62; </h3>
+
+                </div>
+
+                <div class="column" style="background: rgba(47, 169, 242, 0.5)">
+                    <h2> Cúbicas </h2>
+                    <img src="Animacao SVG/data/cBezier.png" alt="Cubic Bezier Curves" width="380" />
+                    <h3> &#60;path class="central_face" d="M 364 255 C 334 250, 320 240, 290 270" /&#62; </h3>
+                    <hr />
+                    <h2> Cúbicas Extendidas </h2>
+                    <img src="Animacao SVG/data/csBezier.png" alt="Cubic Extended Bezier Curves" width="380" />
+                    <h3> &#60;path class="c1" d="M 395 170 C 395 105, 405 105, 405 130 <br /> S 400 180, 428 235 S 370 270, 400 250" /&#62; </h3>
+                </div>
+            </div>
+
+            <h1> Animação em CSS </h1>
+
+            <div class="column">
+                <img src="Animacao SVG/data/css_animation.PNG" alt="CSS Animation Code" style="margin-bottom: 20px" />
+            </div>
+
+        </main>
+    </body>
+    
+</div>
+
+
+
+<script type="text/javascript" src="Animacao SVG/script.js"></script>

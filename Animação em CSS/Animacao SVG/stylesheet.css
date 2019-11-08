@@ -1,0 +1,828 @@
+﻿span {
+    padding: 10px 10px 10px 10px;
+    text-decoration: none;
+    position: fixed;
+    font-size: 25px;
+    background-color: rgba(0,0,0,0.5);
+    color: #969696;
+    opacity: 1;
+    display: block;
+    cursor: pointer;
+    width: 120px;
+    margin-left: 2px;
+    text-align: center;
+}
+
+span:hover {
+    color: #f1f1f1;
+}
+
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+    /* The navigation menu links */
+    .sidenav a {
+        padding: 8px 8px 8px 20px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #969696;
+        display: block;
+        transition: 0.3s;
+    }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+    /* Position and style the close button (top right corner) */
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#realMain {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+
+
+
+
+title {
+    justify-content: center;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: #88A5B0;
+}
+
+svg {
+    height: 80vh;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+#top, #bottom, #left, #right {
+    background: rgba(32, 46, 87, 0.75);
+    position: fixed;
+}
+
+#left, #right {
+    top: 0;
+    bottom: 0;
+    width: 10px;
+}
+
+#left {
+    left: 0;
+}
+
+#right {
+    right: 0;
+}
+
+#top, #bottom {
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+
+#top {
+    top: 0;
+}
+
+#bottom {
+    bottom: 0;
+}
+
+h1 {
+    background: rgba(0, 0, 0, 0.50);
+    color: #F4F6F5;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px 500px;
+}
+
+h2 {
+    color: #202E57;
+    padding: 20px;
+}
+
+h3 {
+    margin-bottom: 100px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.texto {
+    display: flex;
+    margin-bottom: 100px;
+}
+
+.column {
+    flex: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+hr {
+    border-color: black;
+    border-width: 1px;
+}
+
+.mouse {
+    fill: black
+}
+
+#bochechas {
+    fill: #d12352;
+    opacity: 0;
+}
+
+.iris {
+    fill: #8d7510;
+    stroke: black;
+    stroke-width: 2;
+}
+
+.light {
+    fill: white;
+    fill-opacity: 0.5;
+}
+
+#boca {
+    fill: rgb(230,230,230);
+    stroke: black;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+}
+
+
+.c1, #mouth_bottom {
+    fill: rgb(230,230,230);
+    stroke: rgb(230,230,230);
+}
+
+.c2 {
+    fill: transparent;
+    stroke: rgb(230,230,230);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.c3 {
+    fill: transparent;
+    stroke: rgb(230,230,230);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.c4 {
+    fill: transparent;
+    stroke: rgb(230,230,230);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.nose {
+    fill: black;
+    stroke: white;
+    stroke-linecap: round;
+    cursor: grab;
+}
+
+.ear1 {
+    fill: transparent;
+    stroke: white;
+    stroke-linecap: round;
+    stroke-width: 3;
+}
+
+.ear2 {
+    fill: transparent;
+    stroke: white;
+    stroke-linecap: round;
+    stroke-width: 3;
+}
+
+#tongue1 {
+    fill: #f57ac2;
+    stroke: white;
+    stroke-linecap: round;
+    stroke-width: 2;
+}
+
+#bigode {
+    fill: transparent;
+    stroke: white;
+}
+
+.borda {
+    fill: transparent;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+#pote {
+    cursor: grab;
+}
+
+#sobrancelha {
+    opacity: 0;
+    stroke: white;
+    stroke-width: 8;
+    stroke-linecap: round;
+}
+
+#angryMouth {
+    opacity: 0;
+}
+
+
+/* Animacoes a partir daqui */
+
+.mouse {
+    animation-name: colorChange1;
+    animation-iteration-count: infinite;
+    animation-duration: 120s;
+}
+
+@keyframes colorChange1 {
+    22% {
+        fill: black;
+    }
+
+    25% {
+        fill: #b5771f;
+    }
+
+    47% {
+        fill: #b5771f;
+    }
+
+    50% {
+        fill: #492d0d;
+    }
+
+    72% {
+        fill: #492d0d;
+    }
+
+    75% {
+        fill: #30b3fb;
+    }
+
+    97% {
+        fill: #30b3fb;
+    }
+
+    100% {
+        fill: black;
+    }
+}
+
+.c1, #boca{
+    animation-name: colorChange2;
+    animation-iteration-count: infinite;
+    animation-duration: 120s;
+}
+
+@keyframes colorChange2 {
+    47% {
+        fill: rgb(230,230,230);
+        stroke: rgb(230,230,230);
+    }
+
+    50% {
+        fill: #865208;
+        stroke: #865208;
+    }
+
+    72% {
+        fill: #865208;
+        stroke: #865208;
+    }
+
+    75% {
+        fill: rgb(230,230,230);
+        stroke: rgb(230,230,230);
+    }
+}
+
+.c2, .c3, .c4, .ear1, .ear2, #bigode, .borda, #sobrancelha {
+    animation-name: colorChange3;
+    animation-iteration-count: infinite;
+    animation-duration: 120s;
+}
+
+@keyframes colorChange3 {
+    22% {
+        stroke: rgb(230,230,230);
+    }
+
+    25% {
+        stroke: black;
+    }
+
+    97% {
+        stroke: black;
+    }
+
+    100% {
+        stroke: rgb(230,230,230);
+    }
+}
+
+#e1, #e2 {
+    animation-name: colorChange4;
+    animation-iteration-count: infinite;
+    animation-duration: 120s;
+}
+
+@keyframes colorChange4 {
+    22% {
+        stroke: #e206b4;
+    }
+
+    25% {
+        stroke: #b30c6a;
+    }
+
+    47% {
+        stroke: #b30c6a;
+    }
+
+    50% {
+        stroke: #e206b4;
+    }
+}
+
+.olhos {
+    animation-name: shrink;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-delay: 3s;
+    transform-origin: 400px 180px;
+}
+
+@keyframes shrink {
+    1.5% {
+        transform: scaleY(0.05);
+    }
+
+    3% {
+        transform: scaleY(1);
+    }
+}
+
+#ppl1 {
+    animation-name: olhadinha1;
+    animation-iteration-count: infinite;
+    animation-duration: 13s;
+    transform-origin: 360px 180px;
+    animation-play-state: paused;
+}
+
+@keyframes olhadinha1 {
+    0% {
+        transform: scale(1)
+    }
+
+    4% {
+        transform: scale(0.6);
+    }
+
+    15% {
+        transform: translate(5px,0) scale(0.6);
+    }
+
+    23% {
+        transform: translate(5px,0) scale(0.6);
+    }
+
+    31% {
+        transform: translate(0,0) scale(1);
+    }
+}
+
+#ppl2 {
+    animation-name: olhadinha2;
+    animation-iteration-count: infinite;
+    animation-duration: 13s;
+    transform-origin: 440px 180px;
+    animation-play-state: paused;
+}
+
+@keyframes olhadinha2 {
+    0% {
+        transform: scale(1)
+    }
+
+    4% {
+        transform: scale(0.6);
+    }
+
+    15% {
+        transform: translate(5px,0) scale(0.6);
+    }
+
+    23% {
+        transform: translate(5px,0) scale(0.6);
+    }
+
+    31% {
+        transform: translate(0,0) scale(1);
+    }
+}
+
+#bochechas {
+    animation-name: hihihi;
+    animation-play-state: paused;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes hihihi {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.75;
+    }
+
+    70% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+
+#p1 {
+    --x: 0px;
+    --y: 0px;
+    animation-name: olhar1;
+    animation-duration: 1.5s;
+    animation-play-state: paused;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+#l1 {
+    --x: 0px;
+    --y: 0px;
+    animation-name: olhar1;
+    animation-duration: 1.5s;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes olhar1 {
+    0% {
+        transform: translate(0,0)
+    }
+
+    50% {
+        transform: translate(var(--x),var(--y))
+    }
+
+    100% {
+        transform: translate(0,0);
+    }
+}
+
+#p2 {
+    --x: 0px;
+    --y: 0px;
+    animation-name: olhar2;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+}
+
+#l2 {
+    --x: 0px;
+    --y: 0px;
+    animation-name: olhar2;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+}
+
+@keyframes olhar2 {
+    0% {
+        transform: translate(0,0)
+    }
+
+    50% {
+        transform: translate(var(--x),var(--y))
+    }
+
+    100% {
+        transform: translate(0,0)
+    }
+}
+
+#pupila1 {
+    animation-name: dilatacao1;
+    animation-duration: 13s;
+    animation-iteration-count: infinite;
+    transform-origin: 360px 180px;
+    animation-play-state: paused;
+}
+
+@keyframes dilatacao1 {
+    25% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    90% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#pupila2 {
+    animation-name: dilatacao2;
+    animation-duration: 13s;
+    animation-iteration-count: infinite;
+    transform-origin: 440px 180px;
+    animation-play-state: paused;
+}
+
+@keyframes dilatacao2 {
+    25% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    90% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.light {
+    animation-name: shining;
+    animation-duration: 0.1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shining {
+    0% {
+        transform: translate(0,0);
+    }
+
+    25% {
+        transform: translate(0.2px,0);
+    }
+
+    50% {
+        transform: translate(0,0);
+    }
+
+    75% {
+        transform: translate(-0.2px,0);
+    }
+
+    100% {
+        transform: translate(0,0);
+    }
+}
+
+#nose {
+    animation-name: franzindo;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes franzindo {
+    50% {
+        transform: translateY(-2px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+#tongue {
+    animation-name: respirando;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    
+}
+
+@keyframes respirando {
+    0% {
+        transform: translate(0,0);
+    }
+
+    50% {
+        transform: translate(0,5px);
+    }
+
+    100% {
+        transform: translate(0,0);
+    }
+}
+
+
+
+#tongueA {
+    animation-name: what;
+    animation-duration: 13s;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    transform-origin: center;
+    animation-fill-mode: forwards;
+}
+
+@keyframes what {
+    7% {
+        transform: scale(0.1);
+    }
+
+    98% {
+        transform: scale(0.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#mouth {
+    animation-name: que;
+    animation-duration: 13s;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    transform-origin: 400px 250px;
+    animation-fill-mode: forwards;
+}
+
+@keyframes que {
+    0% {
+        transform: translate(0,0);
+    }
+
+    8% {
+        transform: translate(0,-25px);
+    }
+
+    98% {
+        transform: translate(0,-25px);
+    }
+
+    100% {
+        transform: translate(0,0);
+    }
+}
+
+#dogzoom {
+    --zx: 0px;
+    --zy: 0px;
+    animation-name: zoom;
+    animation-duration: 5s;
+    animation-play-state: paused;
+    animation-iteration-count: infinite;
+}
+
+#nothing {
+    animation-name: kkk;
+    animation-duration: 5s;
+    animation-play-state: paused;
+    animation-iteration-count: infinite;
+}
+
+@keyframes kkk {
+    from {
+        transform: translate(0,0);
+    }
+
+    to {
+        transform: translate(0,0);
+    }
+}
+
+#dog {
+    transform-origin: center;
+    animation-name: rodando, surgindo;
+    animation-duration: 13s, 3s;
+    animation-play-state: paused, running;
+    animation-iteration-count: infinite, 1;
+}
+
+@keyframes surgindo {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes rodando {
+    20% {
+        transform: rotate(0deg);
+    }
+
+    45% {
+        transform: rotate(-20deg);
+    }
+
+    75% {
+        transform: rotate(-20deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes zoom {
+    0% {
+        transform-origin: var(--zx) var(--zy);
+    }
+
+    50% {
+        transform: scale(5);
+        transform-origin: var(--zx) var(--zy);
+    }
+
+    100% {
+        transform: scale(1);
+        transform-origin: var(--zx) var(--zy);
+    }
+}
+
+#angryMouth {
+    animation-name: grr;
+    animation-duration: 0.1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes grr{
+    0% {transform:translateY(0);}
+    50% {transform:translateY(-0.5px);}
+    100% {transform:translateY(0);}
+}
