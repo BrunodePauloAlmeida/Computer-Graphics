@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Cube Animation</title>
+
+    <script type="text/javascript" src="spidergl.js"></script>
+    <script type="text/javascript">
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("realMain").style.marginLeft = "250px";
+            document.getElementById("span").style.opacity = 0;
+        }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("realMain").style.marginLeft = "0";
+            document.getElementById("span").style.opacity = 1;
+        }
+
+        /*****************************************************************************/
+        var theta = Math.PI / 2;
+        var phi = 0.5;
+        SpiderGL.openNamespace();
+
+        function CanvasHandler() {
+        }
+
+        CanvasHandler.prototype = {
+
+            onInitialize: function () {
+                var gl = this.ui.gl;
+
+
+                //VERTEX SHADER
+                var vsSource = "\
+                            precision highp float;                                                	\n\
+                                                                                                    \n\
+                            attribute vec3 aPosition;												\n\
+                            attribute vec3 aColor;			                                        \n\
+                                                                                                    \n\
+                            uniform mat4 uModelViewProjectionMatrix;                            	\n\
+                                                                                                    \n\
+                            varying   vec3 vColor;                                                	\n\
+                                                                                                    \n\
+                            void main(void) {														\n\
+                                vColor = aColor;	                                             	\n\
+                                                                                                    \n\
+                                gl_Position = uModelViewProjectionMatrix * vec4(aPosition, 1.0);  	\n\
+                            }																		\n\
+                        ";
+
+                //FRAGMENT SHADER
+                var fsSource = "\
+                            precision highp float;                          \n\
+                                                                            \n\
+                            varying   vec3 vColor;                          \n\
+                                                                            \n\
+                            void main(void) {								\n\
+                                gl_FragColor = vec4(vColor, 1.0);	        \n\
+                            }												\n\
+                        ";
+
+                //SPIDERGL SHADERS INITIALIZATION
+                var vShader = new SglVertexShader(gl, { source: vsSource });
+                var fShader = new SglFragmentShader(gl, { source: fsSource });
+
+                this.shaderProgram = new SglProgram(gl, {
+                    autoLink: true,
+                    shaders: [vShader, fShader],
+                    attributes: {
+                        aPosition: 0,
+                        aColor: 1
+                    },
+                    uniforms: {
+                        uModelViewProjectionMatrix: SglMat4.identity()
+                    }
+                });
+
+
+                var cubeVertices = [
+
+                    -1.0, -1.0, 1.0,	//0
+                    1.0, -1.0, 1.0,	//1
+                    -1.0, 1.0, 1.0,	//2
+                    1.0, 1.0, 1.0,	//3
+                    -1.0, -1.0, -1.0,	//4
+                    1.0, -1.0, -1.0,	//5
+                    -1.0, 1.0, -1.0,	//6
+                    1.0, 1.0, -1.0 	//7
+                ];
+
+                this.cubeVertexPositionBuffer = new SglVertexBuffer(gl, {
+                    data: new Float32Array(cubeVertices),
+                    usage: gl.STATIC_DRAW
+                });
+
+                var cubeColors = [
+                    0.0, 0.0, 1.0,	//0
+                    1.0, 0.0, 1.0,	//1
+                    0.0, 1.0, 1.0,	//2
+                    1.0, 1.0, 1.0,	//3
+                    0.0, 0.0, 0.0,	//4
+                    1.0, 0.0, 0.0,	//5
+                    0.0, 1.0, 0.0,	//6
+                    1.0, 1.0, 0.0	//7
+                ];
+
+                this.cubeVertexColorBuffer = new SglVertexBuffer(gl, {
+                    data: new Float32Array(cubeColors),
+                    usage: gl.STATIC_DRAW
+                });
+
+                //SPIDERGL INDEX BUFFER INITIALIZATION
+                var cubeIndicesTriangles = [
+                    0, 1, 2, 2, 1, 3,  // Front
+                    5, 4, 7, 7, 4, 6,  // Back
+                    4, 0, 6, 6, 0, 2,  // Left
+                    1, 5, 3, 3, 5, 7,  // Right
+                    2, 3, 6, 6, 3, 7,  // Top
+                    4, 5, 0, 0, 5, 1   // Bottom
+                ];
+
+                this.cubeVertexIndexBufferT = new SglIndexBuffer(gl, {
+                    data: new Uint16Array(cubeIndicesTriangles),
+                    usage: gl.STATIC_DRAW
+                });
+
+                this.cubeVertexIndexBufferT.numItems = 36;
+
+                var cubeIndicesLines = [
+                    0, 1, 1, 3, 3, 2, 2, 0,  // Front
+                    5, 4, 4, 6, 6, 7, 7, 5,  // Back
+                    0, 4, 1, 5, 3, 7, 2, 6   // Middle
+                ];
+
+                this.cubeVertexIndexBufferL = new SglIndexBuffer(gl, {
+                    data: new Uint16Array(cubeIndicesLines),
+                    usage: gl.STATIC_DRAW
+                });
+
+                this.cubeVertexIndexBufferL.numItems = 24;
+
+                this.primitives = gl.TRIANGLES;
+                this.cubeVertexIndexBuffer = this.cubeVertexIndexBufferT;
+
+                this.angle = -45.0;
+                this.rate = 60.0;
+                this.cameraangle = 0;
+                this.zoom = 70;
+                this.eyeX = 4 * Math.cos(theta) * Math.sin(phi);
+                this.eyeY = 4 * Math.sin(theta) * Math.sin(phi);
+                this.eyeZ = 4 * Math.cos(phi);
+                this.opa = 1.0;
+
+                this.ui.animateRate = 100.0;
+
+                this.xform = new SglTransformationStack();
+            },
+
+            onKeyPress: function (key) {
+                var gl = this.ui.gl;
+
+                if (key == "1") {
+                    this.primitives = gl.TRIANGLES;
+                    this.cubeVertexIndexBuffer = this.cubeVertexIndexBufferT;
+                    this.ui.postDrawEvent();
+                }
+                if (key == "2") {
+                    this.primitives = gl.LINES;
+                    this.cubeVertexIndexBuffer = this.cubeVertexIndexBufferL;
+                    this.ui.postDrawEvent();
+                }
+            },
+
+            onMouseWheel: function (delta, x, y, obj) {
+
+                phi += delta / 20;
+
+
+                this.eyeX = 4 * Math.cos(theta) * Math.sin(phi);
+                this.eyeY = 4 * Math.sin(theta) * Math.sin(phi);
+                if (Math.cos(phi) < 0) this.opa = -1.0;
+                else this.opa = 1.0;
+                this.eyeZ = 4 * Math.cos(phi);
+
+                console.log(Math.sin(phi));
+                console.log(Math.cos(phi));
+            },
+
+            onDoubleClick: function (button, x, y, obj) {
+                if (this.zoom == 70.0) this.zoom = 35.0;
+                else this.zoom = 70.0;
+            },
+
+            onAnimate: function (dt) {
+                this.angle += 60.0 * dt;
+                this.ui.postDrawEvent();
+            },
+
+            onDraw: function () {
+
+                var gl = this.ui.gl;
+                var w = this.ui.width;
+                var h = this.ui.height;
+                var xform = this.xform;
+
+                gl.clearColor(1, 0.855, 0.835, 1);
+
+                gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT);
+
+                gl.viewport(0, 0, w, h);
+
+                gl.enable(gl.DEPTH_TEST);
+
+                this.shaderProgram.bind();
+
+                xform.projection.loadIdentity();
+                xform.projection.perspective(sglDegToRad(this.zoom), w / h, 1, 10.0);
+
+                xform.view.loadIdentity();
+                xform.view.lookAt([this.eyeX, this.eyeY, this.eyeZ], [0.0, 0.0, 0.0], [0, this.opa, 0.0]);
+
+                xform.model.loadIdentity();
+                xform.model.rotate(sglDegToRad(this.angle), [0.0, 1.0, 0.0]);
+                xform.model.scale([0.6, 0.6, 0.6]);
+
+                this.shaderProgram.setUniforms({
+                    uModelViewProjectionMatrix: xform.modelViewProjectionMatrix
+                });
+
+                this.cubeVertexPositionBuffer.vertexAttribPointer({
+                    index: 0,
+                    size: 3,
+                    glType: gl.FLOAT,
+                    normalized: false,
+                    stride: 0,
+                    offset: 0,
+                    enable: true
+                });
+
+                this.cubeVertexColorBuffer.vertexAttribPointer({
+                    index: 1,
+                    size: 3,
+                    glType: gl.FLOAT,
+                    normalized: false,
+                    stride: 0,
+                    offset: 0,
+                    enable: true
+                });
+
+                this.cubeVertexIndexBuffer.drawElements({
+                    glMode: this.primitives,
+                    count: this.cubeVertexIndexBuffer.numItems,
+                    glType: gl.UNSIGNED_SHORT,
+                    offset: 0
+                });
+
+                this.shaderProgram.unbind();
+
+                gl.disable(gl.DEPTH_TEST);
+            }
+
+        };
+
+        sglHandleCanvasOnLoad("draw-canvas", new CanvasHandler());
+
+        function focuson() {
+            document.getElementById("draw-canvas").focus();
+        }
+        window.onload = focuson;
+
+        /*****************************************************************************/
+
+    </script>
+    <link rel="stylesheet" href="stylesheet.css" />
+</head>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../Animação em CSS/index.html">Animação em CSS</a>
+    <a href="../Fluxograma Matemática Aplicada/index.html">Fluxograma de <br /> Matemática Aplicada</a>
+    <a href="../Fluxograma Ciência de Dados/index.html">Fluxograma de <br /> Ciência de Dados</a>
+    <a href="../Gerador de Curvas de Bezier/index.html">Gerador de <br />Curvas de Bezier</a>
+    <a href="../Cubo/index.html"> Animação em 3D<br />Introdutória</a>
+</div>
+
+<span id="span" onclick="openNav()">Projetos</span>
+
+<div id="realMain">
+    <body>
+        <!--Colocando bordas na pagina-->
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+
+        <h1> 3D - Animation </h1>
+
+        <div>
+            <center>
+                <canvas id="draw-canvas" width="900px" height="500px" style="border:1px solid gray;"></canvas>
+            </center>
+        </div>
+
+        <h2> Interações: &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; DoubleClick: Zoom Dentro/Fora &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Mouse Scroll: Rotação de Câmera <br /> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 1: Mostrar faces e arestas &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 2: Mostrar apenas arestas</h2>
+
+    </body>
+</div>
+
+
+</html>
