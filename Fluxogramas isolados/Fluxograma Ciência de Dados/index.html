@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> Fluxograma Ciência de Dados </title>
+    <link rel="stylesheet" href="stylesheet.css" />
+</head>
+
+<div id="realMain">
+    <body>
+        <!--Colocando bordas na pagina-->
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+
+        <script type="text/javascript" src="script.js"></script>
+
+        <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             center viewBox="50 -80 1520 930" onload="interaction(evt)">
+            <rect id="fundo" x="0" y="-80" width="1600" height="950" style="fill: white" />
+
+            <script type="text/javascript" src="script.js">create_lines();</script>
+
+            <g class="complementar">
+                <text x="155" y="-10" fill="rgb(120,120,120)" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif" font-size="20px">CURSO DE GRADUAÇÃO EM</text>
+                <text x="155" y="40" style="fill: rgb(1, 61, 125); font-size: 50px; font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"> CIÊNCIA DE DADOS </text>
+                <image href="logo.png" x="1110" y="-50" width="360" />
+
+                <rect x="155" y="75" width="120" height="25" />
+                <text class=light_text x="215" y="92"> 1º PERÍODO </text>
+                <rect x="325" y="75" width="120" height="25" />
+                <text class=light_text x="385" y="92"> 2º PERÍODO </text>
+                <rect x="495" y="75" width="120" height="25" />
+                <text class=light_text x="555" y="92"> 3º PERÍODO </text>
+                <rect x="665" y="75" width="120" height="25" />
+                <text class=light_text x="725" y="92"> 4º PERÍODO </text>
+                <rect x="835" y="75" width="120" height="25" />
+                <text class=light_text x="895" y="92"> 5º PERÍODO </text>
+                <rect x="1005" y="75" width="120" height="25" />
+                <text class=light_text x="1065" y="92"> 6º PERÍODO </text>
+                <rect x="1175" y="75" width="120" height="25" />
+                <text class=light_text x="1235" y="92"> 7º PERÍODO </text>
+                <rect x="1345" y="75" width="120" height="25" />
+                <text class=light_text x="1405" y="92"> 8º PERÍODO </text>
+            </g>
+
+            <g class="retangulos" id="retangulos">
+                <g class="subject1 CUV_o">
+                    <rect id="CUV" class="matematica subject" x="155" y="150" width="100" height="65" />
+                    <text class=light_text x="215" y="175">
+                        Cálculo em <tspan x="215" y="190">uma Variável</tspan>
+                        <tspan x="215" y="215" style="font-weight: normal; fill: lightgray; font-size: 14px;">(90 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 GAN_o">
+                    <rect id="GAN" class="matematica subject" x="155" y="250" width="120" height="80" />
+                    <text class=light_text x="215" y="275">
+                        Geometria <tspan x="215" y="290">Analítica</tspan>
+                        <tspan x="215" y="315" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 ICD_o">
+                    <rect id="ICD" class="ciencia_de_dados subject" x="155" y="350" width="120" height="80" />
+                    <text class=dark_text x="215" y="375">
+                        Introdução à<tspan x="215" y="390">Ciência de</tspan>
+                        <tspan x="215" y="405">Dados</tspan> <tspan x="215" y="420" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 ADV_o">
+                    <rect id="ADV" class="ciencia_de_dados subject" x="155" y="450" width="120" height="80" />
+                    <text class=dark_text x="215" y="465">
+                        Análise <tspan x="215" y="480">Exploratória</tspan>
+                        <tspan x="215" y="495">de Dados e</tspan> <tspan x="215" y="510">Visualização</tspan>
+                        <tspan x="215" y="525" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 IAC_o">
+                    <rect id="IAC" class="programacao subject" x="155" y="550" width="120" height="80" />
+                    <text class=light_text x="215" y="575">
+                        Introdução à <tspan x="215" y="590">Computação</tspan>
+                        <tspan x="215" y="615" style="font-weight: normal; fill: lightgray; font-size: 14px;">(90 horas)</tspan>
+                    </text>
+                </g>
+
+
+
+
+
+                <g class="subject1 CVV_o">
+                    <rect id="CVV" class="matematica subject" x="325" y="150" width="100" height="65" />
+                    <text class=light_text x="385" y="175">
+                        Cálculo em <tspan x="385" y="190">várias Variáveis</tspan>
+                        <tspan x="385" y="215" style="font-weight: normal; fill: lightgray; font-size: 14px;">(90 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 ALL_o">
+                    <rect id="ALL" class="matematica subject" x="325" y="250" width="100" height="65" />
+                    <text class=light_text x="385" y="275">
+                        Álgebra <tspan x="385" y="290">Linear</tspan>
+                        <tspan x="385" y="315" style="font-weight: normal; fill: lightgray; font-size: 14px;">(90 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 IAE_o">
+                    <rect id="IAE" class="conhecimento_adicional subject" x="325" y="350" width="100" height="65" />
+                    <text class=dark_text x="385" y="375">
+                        Introdução à<tspan x="385" y="390">Economia</tspan>
+                        <tspan x="385" y="415" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 LDP_o">
+                    <rect id="LDP" class="programacao subject" x="325" y="450" width="100" height="65" />
+                    <text class=light_text x="385" y="475">
+                        Linguagens de<tspan x="385" y="490">Programação</tspan>
+                        <tspan x="385" y="515" style="font-weight: normal; fill: lightgray; font-size: 14px;">(90 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 BDD_o">
+                    <rect id="BDD" class="programacao subject" x="325" y="550" width="120" height="80" />
+                    <text class=light_text x="385" y="575">
+                        Banco de <tspan x="385" y="590">Dados</tspan>
+                        <tspan x="385" y="615" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+
+
+
+
+                <g class="subject1 EDO_o">
+                    <rect id="EDO" class="matematica subject" x="495" y="150" width="100" height="65" />
+                    <text class=light_text x="555" y="175">
+                        Equações <tspan x="555" y="190">Diferenciais</tspan>
+                        <tspan x="555" y="205">Ordinárias</tspan> <tspan x="555" y="220" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 TDP_o">
+                    <rect id="TDP" class="probabilidade subject" x="495" y="250" width="100" height="65" />
+                    <text class=light_text x="555" y="275">
+                        Teoria da <tspan x="555" y="290">Probabilidade</tspan>
+                        <tspan x="555" y="315" style="font-weight: normal; fill: lightgray; font-size: 14px;">(90 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 ALN_o">
+                    <rect id="ALN" class="matematica subject" x="495" y="350" width="100" height="65" />
+                    <text class=light_text x="555" y="375">
+                        Álgebra <tspan x="555" y="390">Linear</tspan>
+                        <tspan x="555" y="405">Numérica</tspan> <tspan x="555" y="420" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 TAC_o">
+                    <rect id="TAC" class="ciencia_de_dados subject" x="495" y="450" width="120" height="80" />
+                    <text class=dark_text x="555" y="465">
+                        Técnicas e <tspan x="555" y="480">Algoritmos em</tspan>
+                        <tspan x="555" y="495">Ciência de</tspan> <tspan x="555" y="510">Dados</tspan>
+                        <tspan x="555" y="525" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 EDA_o">
+                    <rect id="EDA" class="programacao subject" x="495" y="550" width="100" height="65" />
+                    <text class=light_text x="555" y="575">
+                        Estruturas <tspan x="555" y="590">de Dados e</tspan>
+                        <tspan x="555" y="605">Algoritmos</tspan> <tspan x="555" y="620" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+
+
+
+
+                <g class="subject1 MMD_o">
+                    <rect id="MMD" class="matematica subject" x="665" y="150" width="100" height="65" />
+                    <text class=light_text x="725" y="175">
+                        Matemática <tspan x="725" y="190">Discreta</tspan>
+                        <tspan x="725" y="215" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 IES_o">
+                    <rect id="IES" class="probabilidade subject" x="665" y="250" width="100" height="65" />
+                    <text class=light_text x="725" y="275">
+                        Inferência <tspan x="725" y="290">Estatística</tspan>
+                        <tspan x="725" y="315" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 OCD_o">
+                    <rect id="OCD" class="ciencia_de_dados subject" x="665" y="350" width="120" height="80" />
+                    <text class=dark_text x="725" y="375">
+                        Otimização <tspan x="725" y="390">para Ciência</tspan>
+                        <tspan x="725" y="405">de Dados</tspan> <tspan x="725" y="420" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 MGI_o">
+                    <rect id="MGI" class="programacao subject" x="665" y="450" width="100" height="65" />
+                    <text class=light_text x="725" y="475">
+                        Modelagem <tspan x="725" y="490">Informacional</tspan>
+                        <tspan x="725" y="515" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 PLN_o">
+                    <rect id="PLN" class="programacao subject" x="665" y="550" width="100" height="65" />
+                    <text class=light_text x="725" y="575">
+                        PLN e Sistemas <tspan x="725" y="590">de Recuperação</tspan>
+                        <tspan x="725" y="605">de Informação</tspan> <tspan x="725" y="620" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+
+
+
+
+                <g class="subject1 IAR_o">
+                    <rect id="IAR" class="matematica subject" x="835" y="150" width="100" height="65" />
+                    <text class=light_text x="895" y="175">
+                        Introdução à <tspan x="895" y="190">Análise Real</tspan>
+                        <tspan x="895" y="215" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 MES_o">
+                    <rect id="MES" class="probabilidade subject" x="835" y="250" width="100" height="65" />
+                    <text class=light_text x="895" y="275">
+                        Modelagem <tspan x="895" y="290">Estatística</tspan>
+                        <tspan x="895" y="315" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 ADM_o">
+                    <rect id="ADM" class="ciencia_de_dados subject" x="835" y="350" width="100" height="65" />
+                    <text class=dark_text x="895" y="375">
+                        Aprendizado<tspan x="895" y="390">de Máquinas</tspan>
+                        <tspan x="895" y="415" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 CES_o">
+                    <rect id="CES" class="programacao subject" x="835" y="450" width="100" height="65" />
+                    <text class=light_text x="895" y="475">
+                        Computação <tspan x="895" y="490">Escalável</tspan>
+                        <tspan x="895" y="515" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1">
+                    <rect class="complementar subject" x="835" y="550" width="100" height="65" />
+                    <text class=light_text x="895" y="575">
+                        Atividade <tspan x="895" y="590">Complementar</tspan>
+                        <tspan x="895" y="615" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+
+
+
+
+                <g class="subject1 CDR_o">
+                    <rect id="CDR" class="matematica subject" x="1005" y="150" width="100" height="65" />
+                    <text class=light_text x="1065" y="175">
+                        Ciência de <tspan x="1065" y="190">Redes</tspan>
+                        <tspan x="1065" y="215" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 STP_o">
+                    <rect id="STP" class="probabilidade subject" x="1005" y="250" width="100" height="65" />
+                    <text class=light_text x="1065" y="275">
+                        Séries <tspan x="1065" y="290">Temporais</tspan>
+                        <tspan x="1065" y="315" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 APP_o">
+                    <rect id="APP" class="ciencia_de_dados subject" x="1005" y="350" width="100" height="65" />
+                    <text class=dark_text x="1065" y="375">
+                        Aprendizado<tspan x="1065" y="390">Profundo</tspan>
+                        <tspan x="1065" y="415" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1">
+                    <rect class="eletiva subject" x="1005" y="450" width="100" height="65" />
+                    <text class=dark_text x="1065" y="490">
+                        Eletiva I
+                        <tspan x="1065" y="515" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1">
+                    <rect class="complementar subject" x="1005" y="550" width="100" height="65" />
+                    <text class=light_text x="1065" y="575">
+                        Atividade <tspan x="1065" y="590">Complementar</tspan>
+                        <tspan x="1065" y="615" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+
+
+
+
+                <g class="subject1 EC1_o">
+                    <rect id="EC1" class="conhecimento_adicional subject" x="1175" y="150" width="100" height="65" />
+                    <text class=dark_text x="1235" y="175">
+                        Estágio <tspan x="1235" y="190">Obrigatório</tspan>
+                        <tspan x="1235" y="215" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 MDC_o">
+                    <rect id="MDC" class="tcc subject" x="1175" y="250" width="100" height="65" />
+                    <text class=dark_text x="1235" y="275">
+                        Metodologia <tspan x="1235" y="290">Científica</tspan>
+                        <tspan x="1235" y="315" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 PCD_o">
+                    <rect id="PCD" class="ciencia_de_dados subject" x="1175" y="350" width="120" height="80" />
+                    <text class=dark_text x="1235" y="375">
+                        Projetos em <tspan x="1235" y="390">Ciências de</tspan>
+                        <tspan x="1235" y="405">Dados</tspan> <tspan x="1235" y="420" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1">
+                    <rect class="eletiva subject" x="1175" y="450" width="100" height="65" />
+                    <text class=dark_text x="1235" y="490">
+                        Eletiva II
+                        <tspan x="1235" y="515" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1">
+                    <rect class="complementar subject" x="1175" y="550" width="100" height="65" />
+                    <text class=light_text x="1235" y="575">
+                        Atividade <tspan x="1235" y="590">Complementar</tspan>
+                        <tspan x="1235" y="615" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+
+
+
+
+                <g class="subject1 EC2_o">
+                    <rect id="EC2" class="conhecimento_adicional subject" x="1345" y="150" width="100" height="65" />
+                    <text class=dark_text x="1405" y="175">
+                        Estágio <tspan x="1405" y="190">Obrigatório</tspan>
+                        <tspan x="1405" y="215" style="font-weight: normal; font-size: 14px;">(90 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 TCC_o">
+                    <rect id="TCC" class="tcc subject" x="1345" y="250" width="120" height="80" />
+                    <text class=dark_text x="1405" y="275">
+                        Trabalho de <tspan x="1405" y="290">Conclusão</tspan>
+                        <tspan x="1405" y="305">de Curso</tspan> <tspan x="1405" y="320" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 EMD_o">
+                    <rect id="EMD" class="ciencia_de_dados subject" x="1345" y="350" width="120" height="80" />
+                    <text class=dark_text x="1405" y="375">
+                        Ética na<tspan x="1405" y="390">Manipulação</tspan>
+                        <tspan x="1405" y="405">de Dados</tspan> <tspan x="1405" y="420" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1">
+                    <rect class="eletiva subject" x="1345" y="450" width="100" height="65" />
+                    <text class=dark_text x="1405" y="490">
+                        Eletiva III
+                        <tspan x="1405" y="515" style="font-weight: normal; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1">
+                    <rect class="complementar subject" x="1345" y="550" width="120" height="80" />
+                    <text class=light_text x="1405" y="575">
+                        Atividade <tspan x="1405" y="590">Complementar</tspan>
+                        <tspan x="1405" y="615" style="font-weight: normal; fill: lightgray; font-size: 14px;">(60 horas)</tspan>
+                    </text>
+                </g>
+
+                <g class="subject1 LBR_o">
+                    <rect id="LBR" class="subject" x="1345" y="650" width="120" height="80" style="fill: rgb(170,170,170)" />
+                    <text class=dark_text x="1405" y="675">
+                        Libras <tspan x="1405" y="690" style="font-weight: normal"> Optativa </tspan>
+                        <tspan x="1405" y="715" style="font-weight: normal; font-size: 14px;">(30 horas)</tspan>
+                    </text>
+                </g>
+
+            </g>
+
+            <g id="button" class="pointer">
+                <rect id="botao" x="-100" y="0" width="90" height="70" rx="10" ry="10" />
+                <text id="button_text" class="light_text btext" x="-55" y="20"> Mostrar </text>
+                <text class="light_text btext" x="-55" y="40"> Relações </text>
+                <text class="light_text btext" x="-55" y="60"> Indiretas </text>
+            </g>
+
+            <g id="horas">
+                <rect x="155" y="670" width="680" height="110" style="fill: white;" />
+                <text x="170" y="695">
+                    *Disciplinas Obrigatórias _____________ 1920 horas
+                    <tspan x="170" y="715"> *Disciplinas Eletivas __________________ 180 horas</tspan>
+                    <tspan x="170" y="735"> *Disciplinas Optativas _________________ 30 horas</tspan>
+                </text>
+                <text x="500" y="695">
+                    *Estágio Obrigatório ___________________ 150 horas
+                    <tspan x="500" y="715"> *Trabalho de Conclusão ________________ 120 horas</tspan>
+                    <tspan x="500" y="735"> *Atividades Complementares ____________ 240 horas</tspan>
+                </text>
+                <text x="170" y="765" style="stroke: rgb(90,90,90)"> *Total ________________________________________________________________ 2610 + 30 (optativas) </text>
+            </g>
+
+            <g id="driver" class="pointer">
+                <rect x="-100" y="0" width="100" height="50" fill="rgb(180,180,180)" rx="5" ry="5" stroke="rgb(9, 47, 79)" stroke-width="3px" />
+                <text class="dark_text" x="-50" y="20">
+                    Mais
+                    <tspan x="-50" y="40">Informações</tspan>
+                </text>
+            </g>
+
+        </svg>
+
+
+
+    </body>
+</div>
+
+
+</html>
+
+
