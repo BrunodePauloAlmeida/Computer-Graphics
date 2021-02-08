@@ -1,3 +1,16 @@
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("realMain").style.marginLeft = "250px";
+  document.getElementById("span").style.opacity = 0;
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("realMain").style.marginLeft = "0";
+  document.getElementById("span").style.opacity = 1;
+}
+
 // Classe Subject
 class Subject {
     constructor(pr, nome, link) {
@@ -83,7 +96,7 @@ function interaction(evt) {
     var svg = evt.target,
         mostrar_relacoes_indiretas = false;
 
-	//Voltando ï¿½ opacidade normal quando clicar fora
+	//Voltando à opacidade normal quando clicar fora
 	document.getElementById("fundo").addEventListener('click', back_to_normal);
 
     //Adicionando event listeners pra cada subject

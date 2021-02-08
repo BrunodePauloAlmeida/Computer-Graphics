@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> Curvas de Bezier </title>
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.2/math.js"></script>
+</head>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../Animação em CSS/index.html">Animação em CSS</a>
+    <a href="../Fluxograma Matemática Aplicada/index.html">Fluxograma de <br> Matemática Aplicada</a>
+    <a href="../Fluxograma Ciência de Dados/index.html">Fluxograma de <br> Ciência de Dados</a>
+    <a href="../Gerador de Curvas de Bezier/index.html">Gerador de <br />Curvas de Bezier</a>
+    <a href="../Cubo/index.html"> Animação em 3D<br />Introdutória</a>
+</div>
+
+<span id="span" onclick="openNav()">Projetos</span>
+
+<div id="realMain">
+    <body>
+        <!--Colocando bordas na pagina-->
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+
+        <script type="text/javascript" src="script.js"></script>
+
+        <h1> Gerador de Curvas de Bezier </h1>
+
+        <div style="
+		margin-left: 170px;
+		margin-bottom: 10px;
+		margin-top: 100px;
+		justify-content: center;
+		align-items: center;">
+
+            Quantidade de Pontos: <input type="text" id="nPoints" value="3">
+            <input type="submit" onclick="restart()" value="Desenhar">
+        </div>
+
+        <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             center viewBox="0 0 1600 900" onload="settings()">
+            <rect id="fundo" x="0" y="0" width="1600" height="900" style="fill: white" />
+
+            <foreignobject x="50" y="20" width="200" height="50" fill="white">
+                <input type="range" min="0" max="250" value="180" id="slider">
+            </foreignobject>
+
+            <text class="texto" x="150" y="65" style="text-anchor: middle; vertical-align: central;"> VELOCIDADE DA CURVA </text>
+            <text id="t" class="texto" x="1500" y="65" style="font-size:25px "> t = 0 </text>
+        </svg>
+
+        <p>
+            A fórmula que calcula as coordenadas de cada ponto de uma Curva de Bezier de grau n-1 é dada por:
+            \[  \sum_{i=0}^n (1-t)^{n-i} \cdot t^i {n \choose i} \cdot P_i \]
+            \[ 0 < t < 1  \]
+        </p>
+
+        <h1> Algoritmo de Grahan Scan </h1>
+
+        <div style="
+        margin-left: 270px;
+		margin-bottom: 10px;
+		margin-top: 0px;
+		justify-content:right;">
+            <input id="comecar" type="submit" value="Começar" onclick="startAnimation()">
+        </div>
+
+        <svg id="gscanAnimation" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             center viewBox="0 0 1200 600" onload="animationSettings()">
+            <rect id="fundo" x="0" y="0" width="1200" height="600" style="fill: white" />
+        </svg>
+
+
+
+    </body>
+</div>
+
+
+</html>
+
+
